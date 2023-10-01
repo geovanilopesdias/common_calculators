@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>Calculadora Básica</title>
+         <style>
+            div#calc{
+                
+                font-family: 'Courier New', Courier, monospace;
+            }
+            table{
+                font-size: 32px;
+                border-width: thick;
+                border-color: white;
+                border-style: solid;
+                border-radius: 5px;
+            }
+            td{
+                color: black;
+                font-weight: bold;
+                text-align: center;
+                background-color: rgb(218, 218, 218);
+            }
+            td#display{
+                background-color: whitesmoke;
+                text-align: right;
+            }
+            td.sign{
+                text-decoration: blink;
+            }
+            button{
+                font-size: 28px;
+            }
+         </style>
+         <meta charset="utf-8">
+         <meta name="color-scheme" content="dark light">
+    </head>
+    <body>
+        <h1>Calculadora básica</h1>
+        <p>Um pequeno script que simula uma calculadora aritmética básica.</p>
+        <p>Tecle "Ctrl+U" para ter acesso ao código da página.</p>
+        <div id="calc">
+        <table>
+            <tr>
+                <td id="display" colspan="4">0</td>
+            </tr>
+            <tr>
+                <td><button>C</button></td>
+                <td></td>
+                <td></td>
+                <td class="sign"><button>+</button></td>
+            </tr>
+            <tr>
+                <td><button>7</button></td>
+                <td><button>8</button></td>
+                <td><button>9</button></td>
+                <td class="sign"><button>&HorizontalLine;</button></td>
+            </tr>
+            <tr>
+                <td><button>4</button></td>
+                <td><button>5</button></td>
+                <td><button>6</button></td>
+                <td class="sign"><button>*</button></td>
+            </tr>
+            <tr>
+                <td><button>1</button></td>
+                <td><button>2</button></td>
+                <td><button>3</button></td>
+                <td class="sign"><button>/</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="sign"><button>=</button></td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>
