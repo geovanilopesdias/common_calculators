@@ -3,9 +3,12 @@
     <head>
          <title>Calculadora Básica</title>
          <style>
+            body{
+                text-align: center;
+            }
             div#calc{
-                
                 font-family: 'Courier New', Courier, monospace;
+
             }
             table{
                 font-size: 32px;
@@ -39,41 +42,44 @@
         <p>Um pequeno script que simula uma calculadora aritmética básica.</p>
         <p>Tecle "Ctrl+U" para ter acesso ao código da página.</p>
         <div id="calc">
-        <table>
+        <table> <!--Alterar para grid: https://www.treinaweb.com.br/blog/css-grid-um-guia-interativo-parte-1-containers-->>
             <tr>
                 <td id="display" colspan="4">0</td>
             </tr>
             <tr>
-                <td><button>C</button></td>
+                <td><button id="clear">C</button></td>
                 <td></td>
                 <td></td>
-                <td class="sign"><button>+</button></td>
+                <td class="sign"><button id="sum">+</button></td>
             </tr>
             <tr>
-                <td><button>7</button></td>
-                <td><button>8</button></td>
-                <td><button>9</button></td>
-                <td class="sign"><button>&HorizontalLine;</button></td>
+                <td><button id="sev_btn">7</button></td>
+                <td><button id="eig_btn">8</button></td>
+                <td><button id="nin_btn">9</button></td>
+                <td class="sign"><button id="subtract">&HorizontalLine;</button></td>
             </tr>
             <tr>
-                <td><button>4</button></td>
-                <td><button>5</button></td>
-                <td><button>6</button></td>
-                <td class="sign"><button>*</button></td>
+                <td><button id="fou_btn">4</button></td>
+                <td><button id="fiv_btn">5</button></td>
+                <td><button id="six_btn">6</button></td>
+                <td class="sign"><button id="multiply">*</button></td>
             </tr>
             <tr>
-                <td><button>1</button></td>
-                <td><button>2</button></td>
-                <td><button>3</button></td>
-                <td class="sign"><button>/</button></td>
+                <td><button id="one_btn">1</button></td>
+                <td><button id="two_btn">2</button></td>
+                <td><button id="thr_btn">3</button></td>
+                <td class="sign"><button id="divide">/</button></td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="sign"><button>=</button></td>
+                <td class="sign"><button id="answer">=</button></td>
             </tr>
         </table>
     </div>
+    <script>
+
+    </script>
     </body>
 </html>
