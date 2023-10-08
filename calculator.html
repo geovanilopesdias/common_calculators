@@ -6,33 +6,63 @@
             body{
                 text-align: center;
             }
-            div#calc{
+            
+            div#container{
+                width: 600px;
                 font-family: 'Courier New', Courier, monospace;
-
-            }
-            table{
                 font-size: 32px;
+                font-weight: bold;
+                color: black;
+                background-color: rgb(173, 239, 255);
                 border-width: thick;
                 border-color: white;
                 border-style: solid;
                 border-radius: 5px;
+                
+                display: grid;
+                justify-content: center;
+                grid-gap: 5px 5px;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                
             }
-            td{
-                color: black;
-                font-weight: bold;
-                text-align: center;
-                background-color: rgb(218, 218, 218);
-            }
-            td#display{
-                background-color: whitesmoke;
+            div.display{
                 text-align: right;
             }
-            td.sign{
-                text-decoration: blink;
+            div.esp_btn{
+                text-decoration: wavy;
+                background-color: aqua;
             }
-            button{
-                font-size: 28px;
+            div.num_btn{
+                text-decoration: wavy;
+                
             }
+            div#container button{
+                font-size: 28px; width: 100%;
+            }
+
+            /*Disposição dos botões*/
+            #display{grid-column: 1 / 5; grid-row: 1;}
+            #clear{grid-column: 1; grid-row: 2; background-color: crimson;}
+            #percentage{grid-column: 2; grid-row: 2;}
+            #square_root{grid-column: 3; grid-row: 2;}
+            #sum{grid-column: 4; grid-row: 2;}
+            #sev_btn{grid-column: 1; grid-row: 3;}
+            #eig_btn{grid-column: 2; grid-row: 3;}
+            #nin_btn{grid-column: 3; grid-row: 3;}
+            #subtract{grid-column: 4; grid-row: 3;}
+            #fou_btn{grid-column: 1; grid-row: 4;}
+            #fiv_btn{grid-column: 2; grid-row: 4;}
+            #six_btn{grid-column: 3; grid-row: 4;}
+            #multiply{grid-column: 4; grid-row: 4;}
+            #one_btn{grid-column: 1; grid-row: 5;}
+            #two_btn{grid-column: 2; grid-row: 5;}
+            #thr_btn{grid-column: 3; grid-row: 5;}
+            #divide{grid-column: 4; grid-row: 5;}
+            #zer_btn{grid-column: 1; grid-row: 6;}
+            #dot_btn{grid-column: 2; grid-row: 6;}
+            #answer{grid-column: 3 / 5; grid-row: 6; background-color: dodgerblue;}
+
          </style>
          <meta charset="utf-8">
          <meta name="color-scheme" content="dark light">
@@ -41,45 +71,113 @@
         <h1>Calculadora básica</h1>
         <p>Um pequeno script que simula uma calculadora aritmética básica.</p>
         <p>Tecle "Ctrl+U" para ter acesso ao código da página.</p>
-        <div id="calc">
-        <table> <!--Alterar para grid: https://www.treinaweb.com.br/blog/css-grid-um-guia-interativo-parte-1-containers-->>
-            <tr>
-                <td id="display" colspan="4">0</td>
-            </tr>
-            <tr>
-                <td><button id="clear">C</button></td>
-                <td></td>
-                <td></td>
-                <td class="sign"><button id="sum">+</button></td>
-            </tr>
-            <tr>
-                <td><button id="sev_btn">7</button></td>
-                <td><button id="eig_btn">8</button></td>
-                <td><button id="nin_btn">9</button></td>
-                <td class="sign"><button id="subtract">&HorizontalLine;</button></td>
-            </tr>
-            <tr>
-                <td><button id="fou_btn">4</button></td>
-                <td><button id="fiv_btn">5</button></td>
-                <td><button id="six_btn">6</button></td>
-                <td class="sign"><button id="multiply">*</button></td>
-            </tr>
-            <tr>
-                <td><button id="one_btn">1</button></td>
-                <td><button id="two_btn">2</button></td>
-                <td><button id="thr_btn">3</button></td>
-                <td class="sign"><button id="divide">/</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td class="sign"><button id="answer">=</button></td>
-            </tr>
-        </table>
-    </div>
+        <div id="container">
+            <div class="display" id="display">0</div> 
+            <div class="esp_btn"><button id="clear">C</button></div>
+            <div class="esp_btn"><button id="pecentage">%</button></div>
+            <div class="esp_btn"><button id="square_root">&Sqrt;</button></div>
+            <div class="esp_btn"><button id="sum">+</button></div>
+            <div class="num_btn"><button id="sev_btn">7</button></div>
+            <div class="num_btn"><button id="eig_btn">8</button></div>
+            <div class="num_btn"><button id="nin_btn">9</button></div>
+            <div class="esp_btn"><button id="subtract">&HorizontalLine;</button></div>
+            <div class="num_btn"><button id="fou_btn">4</button></div>
+            <div class="num_btn"><button id="fiv_btn">5</button></div>
+            <div class="num_btn"><button id="six_btn">6</button></div>
+            <div class="esp_btn"><button id="multiply">&Cross;</button></div>
+            <div class="num_btn"><button id="one_btn">1</button></div>
+            <div class="num_btn"><button id="two_btn">2</button></div>
+            <div class="num_btn"><button id="thr_btn">3</button></div>
+            <div class="esp_btn"><button id="divide">&divide;</button></div>
+            <div class="num_btn"><button id="zer_btn">0</button></div>
+            <div class="num_btn"><button id="dot_btn">.</button></div>
+            <div class="esp_btn"><button id="answer">=</button></div>
+        </div>
     <script>
+        /*Variables declarations*/
+        const displayContent = document.getElementById("display");
+        const numberBtn = document.querySelectorAll('.num_btn');
+        const especialBtn = document.querySelectorAll('.esp_btn');
+        const operations = {SUM: '+', SUBTRACT: '-', MULTIPLY: '*', DIVIDE: '/', PERCENTAGE: '%', SQUARE_ROOT: '√'};
+        let currentDisplayValue = '0';
+        let auxMemoryValue = 0; 
+        let currentOperation = null;
+        
+        numberBtn.forEach((button) => {
+            button.addEventListener("click", () => {
+                let btnValue = button.textContent;
+                if (btnValue === '.' && currentDisplayValue.includes('.')) {
+                    alert('A floating point was already inserted.')
+                    return;
+                }
+                
+                if(currentDisplayValue === "0"){
+                    currentDisplayValue = btnValue;
+                }
 
+                else{
+                    currentDisplayValue += btnValue;
+                }   
+                displayContent.textContent = currentDisplayValue;
+
+            });
+        });
+
+
+        especialBtn.forEach((button) => { 
+            button.addEventListener("click", () =>{
+                const btnValue = button.textContent; // Verificar por que button.id não funciona...                
+                let isTheFirstCalculation = true;
+
+                function sumUp(){
+                    currentOperation = operations.SUM;
+
+                    if(isTheFirstCalculation){
+                        isTheFirstCalculation = false;    
+                        auxMemoryValue = Number(currentDisplayValue);
+                        console.log('auxMemoryValue:', auxMemoryValue);
+                        currentDisplayValue = '0';
+                    }
+                    else{
+                        auxMemoryValue += Number(currentDisplayValue);
+                        currentDisplayValue = '0';
+                    }
+                    displayContent.textContent = currentDisplayValue;
+                }
+
+
+                function resolveIt(){
+                    if(currentOperation != null){
+                        switch(currentOperation){
+                            case operations.SUM: sumUp(); break;
+                        }
+                    }
+                    else{
+                        alert('Oops! It wasn\'t started any operation, pal!');
+                    }
+                    
+                }
+
+                switch(btnValue){
+                    case '+': sumUp(); break;
+                    case '&HorizontalLine;': break;
+                    case '&Cross;': break;
+                    case '&divide;': break;
+                    case '&Sqrt;': break;
+                    case '%;': break;
+                    case '=': resolveIt(); break;
+                    case 'C': 
+                        currentDisplayValue = '0';
+                        displayContent.textContent = currentDisplayValue;
+                        isTheFirstCalculation = true;
+                        auxMemoryValue = 0;
+                        currentOperation = null;
+                        break;
+
+                }
+            });
+        });
+        
     </script>
     </body>
 </html>
