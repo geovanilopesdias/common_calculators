@@ -16,11 +16,12 @@ calc_label = ttk.Label(root,
                         font=("Courier", 12))
 calc_label.grid(column=0, row = 0, columnspan=4, padx=display_padding, pady=display_padding)
 
-calc_display = tk.Text(root, height="1", width="12", font=("Courier", 20), state='disabled')
+calc_display = tk.Text(root, height="1", width="12", font=("Courier", 16), state='disabled')
 calc_display.tag_configure("right", justify='right')
 calc_display.grid(column=0, row = 1, columnspan=3, sticky='EW', padx=display_padding, pady=display_padding)
 
 # Global variables
+decimal_precision = 6
 display_content = "0"
 display_memory = float()
 last_input = float()
@@ -53,7 +54,7 @@ def prepare_display():
     
     display_content = "0"
     calc_display.delete(1.0, "end")
-    calc_display.insert(1.0, str(display_memory))
+    calc_display.insert(1.0, str(round(display_memory, decimal_precision)))
     calc_display['state'] = 'disabled'
 
 
@@ -85,7 +86,7 @@ def begin_calculation_for(operation):
     is_first_operation = False
     display_content = "0"
     calc_display.delete(1.0, "end")
-    calc_display.insert(1.0, str(display_memory))
+    calc_display.insert(1.0, str(round(display_memory, decimal_precision)))
     calc_display['state'] = 'disabled'
 
 
