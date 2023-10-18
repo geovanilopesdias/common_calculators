@@ -258,7 +258,9 @@ def alter_sign():
     else:
         display_memory *= (-1)
         
-    prepare_display()
+    calc_display.delete(1.0, "end")
+    calc_display.insert(1.0, str(round(display_memory, decimal_precision)))
+    calc_display['state'] = 'disabled'
 
 
 def iterate_last_operation():
