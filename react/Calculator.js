@@ -39,10 +39,6 @@ export default function Calculator() {
   function showNotAllowedOperationMessage(){
     setDisplayContent("Not allowed!");
   }
-
-  function prepareDisplay(){
-    setDisplayContent("0");
-  }
   
   function clear(){
     setDisplayMemory(0);
